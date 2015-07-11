@@ -1,0 +1,51 @@
+<h1>Create New Event</h1>
+
+<%= flash_message %>
+
+<% if(@errors!=nil) %>
+	<ul>
+		<% @errors.each do |err| %>
+			<li><%= err %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for ([@concert]) do |frm|%>
+
+	<div class="form-group">
+		<%= frm.label(:artist) %>
+		<%= frm.text_field(:artist, :class => "form_control") %>
+	</div>
+
+	<div class="form-group">
+		<%= frm.label(:description) %>
+		<%= frm.text_field(:description, :class => "form_control") %>
+	</div>
+
+	<div class="form-group">
+		<%= frm.label(:venue) %>
+		<%= frm.text_field(:venue, :class => "form_control") %>
+	</div>
+
+	<div class="form-group">
+		<%= frm.label(:city) %>
+		<%= frm.text_field(:city, :class => "form_control") %>
+	</div>
+
+	<div class="form-group">
+		<%= frm.label(:date) %>
+		<%= frm.date_field(:date, :class => "form_control") %>
+	</div>
+
+	<div class="form-group">
+		<%= frm.label(:price) %>
+		<%= frm.number_field(:price, :class => "form_control") %>
+	</div>
+
+	<div class="form-group">
+		<%= frm.label(:poster) %>
+		<%= frm.text_field(:poster, :class => "form_control") %>
+	</div>
+
+	<button type="submit">SAVE ENTRY</button>
+<%end%>

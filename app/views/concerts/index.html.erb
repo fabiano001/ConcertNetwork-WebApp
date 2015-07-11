@@ -1,0 +1,20 @@
+<div class="row first-row header"><div class="col-sm-4 col-sm-offset-4"><h1>Concerts</h1></div></div>
+
+<div class="row second-row">
+	<div class="row frame">
+		<% if(@concerts.count==0) %>
+			<div class="row concert-display"><p>There are no concerts at this time</p></div>
+		<% else %>
+			<div class="row concert-display">
+				<% @concerts.each do |concert| %>
+					<div class="col-sm-3 single-concert">
+						<a href="/concerts/<%= concert.id %>">
+							<div class="row"><img class="concert-poster" src="<%= concert.poster %>"></div>
+							<div class="row"><div class="col-sm-6 col-sm-offset-2"><%= concert.artist %></div></div>
+						</a>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	<div>
+</div>
