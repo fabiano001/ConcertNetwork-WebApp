@@ -56,56 +56,10 @@
     /*border: 1px solid #000000;
     border-radius: 5px;*/
 }
-
-/*.header h1 {
-	margin-left: 350px;
-}*/
-
- /*
-
-.header-container {
-	width: 950px;
-	height: 40px;
-	position: absolute;
-	left: 0;
-	right: 0;
-	margin: auto;
-	background-color: #FFFFFF;
-	margin-top: 0px;
-	border-radius: 8px;
-	opacity:0.6;
-	font-family: Verdana, Arial, sans-serif;
-    font-color: #333;
-}
-
-.navbar-brand {
-	height: 30px;
-	border: none;
-}
-
-
-
 .frame {
-	min-height: 1050px;
+	margin: 20px;
 }
 
-
-.concert-title {
-	margin-bottom: 50px;
-	margin-left: 30px;
-	color: #333;
-	font-size: 21px;
-	font-family: Verdana, Arial, sans-serif;
-	font-weight: normal;
-	line-height: 21px;
+.footer-nav {
+	margin-top: 50px;
 }
-
-.concert-synopsis {
-	margin-left: 30px;
-	font-family: Verdana, Arial, sans-serif;
-    font-color: #333;
-}
-
-.main-display {
-	margin-bottom: 30px;
-}*/
