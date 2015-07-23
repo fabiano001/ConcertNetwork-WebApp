@@ -21,7 +21,7 @@ html, body {
 }
 
 .full-background {
-	background:url("Rock-N-Roll-1920x1080.jpg") top no-repeat; background-attachment:fixed;
+	background:url("rock-n-roll1920x1080.jpg") top no-repeat; background-attachment:fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
