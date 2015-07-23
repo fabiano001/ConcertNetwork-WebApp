@@ -8,6 +8,7 @@ class CreateConcerts < ActiveRecord::Migration
       t.string :city
       t.float :price
       t.string :poster
+      t.boolean :featured
 
       t.timestamps null: false
     end

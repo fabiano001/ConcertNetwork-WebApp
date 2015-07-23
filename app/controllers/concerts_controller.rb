@@ -1,14 +1,24 @@
+require("rspotify")
+
 class ConcertsController < ApplicationController
-	# C: method to create new movie(GET)
+
+	before_action(:authorize_user)
+  	before_action(:admin_only, :only => [:new, :post])
+
+	# C: method to create new concert(GET)
 	def new
 		@concert = Concert.new
 		render("new")
 	end
 
-	# C: method to create new movie(POST)
+	# C: method to create new concert(POST)
 	def create
-		# decide what page to redirect user to
-		@concert = Concert.new(entry_params)
+
+		album = RSpotify::Artist.search(entry_params[:artist]).first.albums.first
+		poster_url = album.images[1]["url"]
+
+		# @concert = Concert.new(entry_params)
+		@concert = Concert.new({artist: entry_params[:artist], venue: entry_params[:venue], description: entry_params[:description], date: entry_params[:date], city: entry_params[:city], price: entry_params[:price], poster: poster_url, featured: entry_params[:featured]})
 
 		if(@concert.save)
 			flash[:notice] = "Created new concert succesfully"
@@ -20,31 +30,49 @@ class ConcertsController < ApplicationController
 		end
 	end
 
-	# R: method to show all movies
+	# R: method to show all concerts
 	def index
 		@concerts = Concert.all
 		render("index")
 	end
 
-	# R: method to show an specific movie by id
+	# R: method to show an specific concert by id
 	def show
 		@concert = Concert.find(params[:id])
 		render("show")
 	end
 
-	# U: method to uptade a specific movie by id (GET)
+	# R: method to show today's concerts
+	def today
+		@concerts = Concert.where("extract(month from date) = ? and extract(day from date) = ? and extract(year from date) = ?", DateTime.now.month, DateTime.now.day, DateTime.now.year)
+		render("index")
+	end
+
+	# R: method to show this month's concerts
+	def this_month
+		@concerts = Concert.where("extract(month from date) = ? and extract(year from date) = ?", DateTime.now.month, DateTime.now.year)
+		render("index")
+	end
+
+	# R: method to show featured concerts
+	def featured
+		@concerts = Concert.where(featured: true)
+		render("index")
+	end
+
+	# U: method to uptade a specific concert by id (GET)
 	def edit
 		render("edit")
 	end
 
-	# U: method to uptade a specific movie by id (POST)
+	# U: method to uptade a specific concert by id (POST)
 	def update
 		# decide what page to redirect user to
 		# after an instance is updated
 		# don't forget to alert user of succesful update
 	end
 
-	# D: method to delete a specifi movie by id
+	# D: method to delete a specifi concert by id
 	def destroy
 		# decide what page to redirect user to
 		# after an instance is destroyed
@@ -54,7 +82,7 @@ class ConcertsController < ApplicationController
 	private
 
 	def entry_params
-		return params.require(:concert).permit(:artist, :venue, :description, :date, :city, :price, :poster)
+		return params.require(:concert).permit(:artist, :venue, :description, :date, :city, :price, :poster, :featured)
 	end
 end
 

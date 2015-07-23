@@ -1,16 +1,14 @@
-<div class="row header"><h1>Concert</h1></div>
+<div class="col-sm-5 col-sm-offset-4"><h1><%= @concert.artist %> Concert</h1></div>
 <div class="row frame">
 
 <div class="row concert-display">
 	<div class="col-sm-4"><img class="concert-poster" src="<%= @concert.poster %>">
 	</div>
-	<div class="col-sm-8">
-		<div><%= @concert.artist %></div>
-		<div><%= @concert.venue %></div>
-		<div><%= @concert.description %></div>
-		<div><%= @concert.date %></div>
-		<div><%= @concert.city %></div>
-		<div><%= @concert.price %></div>
-		<div><%= @concert.poster %></div>
+	<div class="col-sm-8 concert-details">
+		<div><h4>About:</h4> <%= @concert.description %></div>
+		<div><h4>Venue:</h4> <%= @concert.venue %></div>
+		<div><h4>Date:</h4> <%= @concert.date %></div>
+		<div><h4>City:</h4> <%= @concert.city %></div>
+		<div><h4>Price:</h4> <%= @concert.price %></div>
 	</div>
 <div>

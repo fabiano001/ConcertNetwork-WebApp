@@ -14,6 +14,12 @@
  *= require_self
  */
 
+html, body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
 .full-background {
 	background:url("Rock-N-Roll-1920x1080.jpg") top no-repeat; background-attachment:fixed;
 	-webkit-background-size: cover;
@@ -24,16 +30,13 @@
 
 .container {
 	width: 1050px;
-	/*border: 2px solid #FFFFFF;*/
-	background-color: #000000;
 	background-color: #FFFFFF;
 	margin-top: 70px;
 	border-radius: 8px;
-	opacity:0.6;
+	opacity:0.8;
 }
 
 .first-row, .second-row{
-	/*border: 1px solid #000000;*/
 	padding-left: 10px;
 }
 
@@ -43,8 +46,8 @@
 }
 
 .concert-display {
-	/*border: 1px solid #000000;*/
 	padding: 10px;
+	padding-top: 100px;
 	margin: 10px;
 	border-radius: 5px;
 	height: 300px;
@@ -53,8 +56,6 @@
 .single-concert {
 	font-family: Verdana, Arial, sans-serif;
     font-color: #333;
-    /*border: 1px solid #000000;
-    border-radius: 5px;*/
 }
 .frame {
 	margin: 20px;
@@ -62,4 +63,36 @@
 
 .footer-nav {
 	margin-top: 50px;
+}
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+#header {
+	
+}
+
+#content {
+	padding-bottom:0; /* Height of the footer element */
+}
+
+#footer {
+	background-color:#FFFFFF;
+	width:100%;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+.main-content-wrapper {
+	padding-bottom: 80px;
+}
+
+.footer-container {
+	height:50px;
+}
+
+.new_concert {
+	padding: 30px;
 }

@@ -7,5 +7,6 @@ class Concert < ActiveRecord::Base
 	validates(:city, {presence: true, length: {maximum: 30}})
 	validates(:price, {presence: true, numericality: true, format: {:with => /\A\d+(?:\.\d{0,2})?\z/}})
 	validates(:poster, {presence: true})
+	validates(:featured, {presence: true})
 
 end
